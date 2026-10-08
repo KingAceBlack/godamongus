@@ -15,33 +15,7 @@ The browser connects directly to your Render server over HTTPS/WSS.
 
 There is no need to write a new server, add Vercel Functions, configure a WebSocket proxy, or install a database. The backend is already included. This package does not create accounts or deploy to either platform for you.
 
-## 1. Upload the complete project to GitHub
-
-1. Extract the ZIP and open the `solar-temple` folder.
-2. Create a GitHub repository. A private repository works if you grant both services access.
-3. Upload/commit the **contents of that folder**, including `assets`, `tests`, `tools`, and `backups`.
-4. At the repository root you should see:
-
-```text
-README.md
-package.json
-package-lock.json
-vercel.json
-render.yaml
-index.html
-backend-config.js
-server.cjs
-assets/
-tests/
-tools/
-...the remaining game files
-```
-
-**Do not just upload the ZIP file to GitHub.** Both platforms need the extracted files. Do not commit `node_modules`, `.env` secrets or `dist`; those are ignored. Preserve all supplied artwork and collider files. Only make the repository/artwork public if you have permission to do so.
-
-If you instead keep the project inside a repository subfolder, set that folder as **Root Directory on both Vercel and Render**.
-
-## 2. Deploy the multiplayer server on Render first
+## 1. Deploy the multiplayer server on Render first
 
 In Render, create **New → Web Service**, connect your GitHub repository, and use:
 
@@ -78,7 +52,7 @@ Use your actual Render hostname—not the example above.
 
 **Optional Blueprint route:** `render.yaml` is included if you prefer Render's Blueprint workflow. It applies the same commands and prompts for `ALLOWED_ORIGINS`. The manual Web Service steps above are the simplest first setup when you do not yet know the Vercel URL.
 
-## 3. Deploy the complete frontend on Vercel
+## 2. Deploy the complete frontend on Vercel
 
 In Vercel, choose **Add New → Project**, import the **same GitHub repository**, and use:
 
@@ -113,7 +87,7 @@ https://your-solar-temple.vercel.app
 
 The lobby may say **Server unavailable** until you finish step 4. That is expected while cross-origin access is not yet configured.
 
-## 4. Allow the Vercel frontend on Render
+## 3. Allow the Vercel frontend on Render
 
 Go back to the Render service's **Environment** settings and add:
 
@@ -140,7 +114,7 @@ CORS and WebSocket Origin policy are separate checks; the supplied backend imple
 
 **Optional Render-hosted fallback:** the backend also retains the original ability to serve the game. If you want to play at the Render URL too, include that Render origin in `ALLOWED_ORIGINS`. Normal players should use the Vercel URL.
 
-## 5. Verify the complete deployment
+## 4. Verify the complete deployment
 
 1. Wait until Render reports healthy.
 2. Reload the Vercel game. The lobby should show an online count.
