@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "mapId": "sun-hall",
+  "map": {
+    "image": "sun-hall.webp",
+    "worldWidth": 2600,
+    "worldHeight": 1627,
+    "sourceWidth": 1585,
+    "sourceHeight": 992,
+    "spawn": [950, 690]
+  },
+  "coordinateSystem": "world pixels, origin at map top-left",
+  "notes": "New map: no authored collision polygons yet. Trace walls and props in the local collider editor, then export.",
+  "colliders": []
+}

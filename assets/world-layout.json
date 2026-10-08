@@ -1,0 +1,20 @@
+{
+  "id": "solar-temple",
+  "name": "Solar Temple",
+  "sourceWidth": 3381,
+  "sourceHeight": 1290,
+  "worldUnitsPerPixel": 1.640378548895899,
+  "rooms": [
+    {"id":"entrance","image":"temple-map.webp","x":0,"y":140,"scale":1,"crop":[0,0,1450,992]},
+    {"id":"sun-hall","image":"sun-hall.webp","x":1320,"y":0,"scale":1.3,"crop":[320,0,1265,992]}
+  ],
+  "connector": {
+    "image":"sun-hall.webp",
+    "sourceX":[100,320],
+    "x":[1450,1736],
+    "sourceY":[0,370,488,565,654,992],
+    "leftY":[0,510,642,690,794,1290],
+    "rightY":[0,481,634.4,734.5,850.2,1289.6]
+  },
+  "notes":"Rooms occupy one continuous world. Duplicate corridor end columns are cropped out; the connector gently matches floor/wall heights. Only the connecting strip is warped; room aspect ratios are preserved."
+}

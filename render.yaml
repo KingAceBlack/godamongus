@@ -1,0 +1,16 @@
+# Render runs the persistent backend; Vercel serves the static game from this same repository.
+# Free can sleep. Choose an always-on paid plan for reliable public gameplay.
+services:
+  - type: web
+    name: solar-temple-server
+    runtime: node
+    plan: free
+    numInstances: 1
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        sync: false
